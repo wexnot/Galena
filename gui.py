@@ -40,11 +40,23 @@ class ImageLabel(tk.Label):
             self.config(image=next(self.frames))
             self.after(self.delay, self.next_frame)
 
+switch = True
+
+def change():
+    global switch
+    if switch == False:
+        lbl.unload()
+        lbl.load("myGalena.gif")
+        switch = True
+    else:
+        lbl.unload()
+        lbl.load("newGalena.gif")
+        switch = False
 
 root = tk.Tk()
 lbl = ImageLabel(root)
 lbl.pack()
-btn = tk.Button(root, text="Happy")
+btn = tk.Button(root, text="Happy", command=change)
 btn.pack()
 lbl.load('myGalena.gif')
 root.mainloop()
