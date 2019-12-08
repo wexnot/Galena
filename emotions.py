@@ -12,13 +12,13 @@ class Happy(Positive):
     happiness_matrix = [(0., 0., 0.),
                         (10., 10., 10.),
                         (0., 10., 0.)]
-    
+
     @classmethod
     def transform_to_happy(cls, response):
         apply_variation = list(map(lambda x: x * response, cls.happiness_matrix[1]))
         spice = mean(apply_variation) / cls.index
         return spice
-    
+
 
 class Sad(Negative):
     pass
